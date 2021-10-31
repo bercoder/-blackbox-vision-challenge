@@ -1,11 +1,5 @@
 
 .question {
-  border-radius: 8px;
-  padding: 5px;
-  margin: 10px 0;
-  background-color: var(--background);
-  box-shadow: 2px 2px 4px rgb(241, 240, 240, .7);
-
   h3 {
     margin: 0;
   }
@@ -112,3 +106,6 @@
   }
 }
 
+.skip{
+  background: tomato
+}

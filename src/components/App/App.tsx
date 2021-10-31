@@ -36,20 +36,21 @@ const App: React.FC = () => {
         onFinished={<GameOver correct={correct} points={points} />}
         onLoading={<Loading />}
         onNewGame={<NewGame changeLevel={handleLevel} level={level} />}
-      />
-      {questions?.length > 0 && (
-        <section>
-          <h4>
-            Question {actualQuestion + 1}/{questions.length}
-          </h4>
-          <Question
-            key={questions[actualQuestion].question}
-            assignPoints={assignPoints}
-            data={questions[actualQuestion]}
-            nextQuestion={handleNext}
-          />
-        </section>
-      )}
+      >
+        {questions?.length > 0 && (
+          <section>
+            <h4>
+              Question {actualQuestion + 1}/{questions.length}
+            </h4>
+            <Question
+              key={questions[actualQuestion].question}
+              assignPoints={assignPoints}
+              data={questions[actualQuestion]}
+              nextQuestion={handleNext}
+            />
+          </section>
+        )}
+      </Dialog>
     </div>
   );
 };

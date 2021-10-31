@@ -25,10 +25,17 @@ export const useQuestions = (): Hook => {
   const [level, setLevel] = useState<string>('');
 
   async function newGame() {
+    if (points > 0) {
+      setStatus('INITIAL');
+      setPoint(0);
+
+      return;
+    }
     try {
       setStatus('LOADING');
       const selected = level ? `&difficulty=${level}` : '';
-      const data = await fetch(`https://opentdb.com/api.php?amount=10${selected}`);
+      const data = await fetch(`https://opentdb.com/api.php?&encode=base64&amount=10${selected}`);
+
       const { results } = await data.json();
 
       if (!results || results.length < 1) setStatus('ERROR');

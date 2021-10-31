@@ -27,7 +27,7 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
     message: '',
   });
   const [answers, setAnswers] = useState<Array<string>>([]);
-  const [hints, setHints] = useState<number>(data.type === 'boolean' ? 0 : 2);
+  const [hints, setHints] = useState<number>(atob(data.type) === 'boolean' ? 0 : 2);
 
   useEffect(() => {
     setAnswers([correct_answer, ...data.incorrect_answers].sort());
@@ -59,7 +59,7 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
       setMessage({
         type: 'response',
         class: 'errormessage',
-        message: 'Incorrect :(',
+        message: 'Wrong :(',
       });
     }
   }
@@ -80,8 +80,8 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
 
   return (
     <article className={styles.question}>
-      <p className={styles.category}>Category: {category}</p>
-      <h3>{question}</h3>
+      <p className={styles.category}>Category: {atob(category)}</p>
+      <h3>{atob(question)}</h3>
       <ul>
         {answers.map((answer, i) => (
           <li
@@ -99,7 +99,7 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
               onClick={() => setResponse(answer)}
             />
             <label htmlFor={`${question}${i}`}>
-              <span>{answer}</span>
+              <span>{atob(answer)}</span>
             </label>
           </li>
         ))}
@@ -115,6 +115,9 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
         </button>
         <button disabled={!!correct || !!incorrect} onClick={handleResponse}>
           Answer
+        </button>
+        <button className={styles.skip} disabled={!!correct || !!incorrect} onClick={handleNext}>
+          Skip
         </button>
         {(correct || incorrect) && <button onClick={handleNext}>Next</button>}
       </div>
