@@ -1,8 +1,9 @@
 header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  gap: 20px;
 
   p {
     border-radius: 50%;
@@ -23,5 +24,8 @@ header {
 
   img {
     flex-grow: 1;
+    width: 90%;
+    object-fit: cover;
+    min-width: 0;
   }
 }

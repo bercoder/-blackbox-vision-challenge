@@ -28,6 +28,7 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
   });
   const [answers, setAnswers] = useState<Array<string>>([]);
   const [hints, setHints] = useState<number>(atob(data.type) === 'boolean' ? 0 : 2);
+  const errormsg = 'You have to select an option';
 
   useEffect(() => {
     setAnswers([correct_answer, ...data.incorrect_answers].sort());
@@ -38,7 +39,7 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
       setMessage({
         type: 'error',
         class: 'errormessage',
-        message: 'You have to select an option',
+        message: errormsg,
       });
 
       return;
@@ -78,6 +79,17 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
     setHints((prev) => prev - 1);
   }
 
+  function handleAnswer(answer: string) {
+    if (message.message === errormsg) {
+      setMessage({
+        type: '',
+        class: '',
+        message: '',
+      });
+    }
+    setResponse(answer);
+  }
+
   return (
     <article className={styles.question}>
       <p className={styles.category}>Category: {atob(category)}</p>
@@ -96,7 +108,7 @@ export const Question: React.FC<Props> = ({ data, assignPoints, nextQuestion }) 
               name={question}
               type="radio"
               value={answer}
-              onClick={() => setResponse(answer)}
+              onClick={() => handleAnswer(answer)}
             />
             <label htmlFor={`${question}${i}`}>
               <span>{atob(answer)}</span>
