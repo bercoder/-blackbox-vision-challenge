@@ -39,9 +39,10 @@
         "trailingComma": "all",
         "tabWidth": 2,
         "semi": true,
-        "singleQuote": false,
-        "bracketSpacing": false,
-        "arrowParens": "always"
+        "singleQuote": true,
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "endOfLine": "auto"
       }
     ],
     "import/order": ["warn", {"newlines-between": "always"}],

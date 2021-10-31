@@ -1,0 +1,19 @@
+// Container
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 900px;
+  min-width: 400px;
+}
+
+.dialog {
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px 0;
+  background-color: var(--background);
+  box-shadow: 2px 2px 4px rgb(241, 240, 240, .7);
+
+  button {
+    margin: 20px
+  }
+}

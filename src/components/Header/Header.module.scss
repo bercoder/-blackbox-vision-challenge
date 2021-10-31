@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+
+  p {
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 1px 1px 6px rgb(226, 225, 225, .8);
+    padding: 10px;
+  }
+
+  p span {
+    display: block;
+    font-weight: bold;
+  }
+
+  span:first-of-type {
+    font-weight: normal;
+    font-size: 0.7em;
+  }
+
+  img {
+    flex-grow: 1;
+  }
+}

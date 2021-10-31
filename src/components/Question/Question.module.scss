@@ -1,0 +1,114 @@
+
+.question {
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px 0;
+  background-color: var(--background);
+  box-shadow: 2px 2px 4px rgb(241, 240, 240, .7);
+
+  h3 {
+    margin: 0;
+  }
+  
+  ul {
+    padding: 0 15px;
+  }
+  
+  li {
+    display: flex;
+    background-color: whitesmoke;
+    margin: 10px 0;
+    text-align: left;
+    padding: 12px 0;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    flex-grow: 1;
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px;
+  }
+
+  label span::before {
+    content: "🗸";
+    position: absolute;
+    top: -7px;
+    left: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: green;
+    display: none;
+  }
+  input:checked + label span::before {
+    display: inline
+  }
+
+  label:hover > span::before{
+    display: inline;
+    color: lightgray
+  }
+  input:checked + label {
+    font-weight: bold;
+  }
+}
+
+.qcorrect {
+  background-color: rgb(180, 219, 122)!important;
+}
+
+.qincorrect {
+  background-color: tomato!important;
+}
+
+.category {
+  font-weight: bold;
+  font-size: 0.8em;
+  background: var(--primary);
+  color: white;
+  display: inline-block;
+  padding: 15px;
+  margin-left: -5px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.message {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  margin: 10px 0;
+  font-size: 1.2em;
+
+  p {
+    flex-grow: 1;
+  }
+}
+
+.errormessage p {
+  color: red; 
+  font-size: 0.9em;
+}
+
+.okmessage p {
+  font-weight: bold;
+}
+
+.hint {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-weight: bold;
+    background: yellow;
+    border-radius: 50%;
+    padding: 2px 5px;
+    color: gray;
+  }
+}
+
